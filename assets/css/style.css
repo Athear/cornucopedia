@@ -1,7 +1,25 @@
 body{
+    background-image: url("https://pjsandpaint.com/wp-content/uploads/2019/08/recipe-card-screenshot.jpg");
     background-color: rgb(210, 228, 240);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .main-card{
-    height:500px;
+    
+   height:500px;
+}
+
+#title1 {
+    color:brown;
+    
+    font-family: sans-serif
+}
+
+#main {
+    background-color: orange;
+}
+
+
+
+#cookBook {
+    border: 3px solid brown;
 }

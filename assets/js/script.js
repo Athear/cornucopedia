@@ -15,7 +15,7 @@ var edamamReadyTime ="";
     }
 
     var edamamQueryURL = "https://api.edamam.com/search?q="+searchTerm+"&app_id="+edamamAPIid+"&app_key="+edamamAPIKey+"&from=0&to=5"
-    var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?q="+searchTerm+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
+    var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients="+searchTerm+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
 
     console.log(spoonacularQueryURL);//DEBUG
 
@@ -78,6 +78,8 @@ function parseIngredients(ingredientStruct){
 $("#searchButton").on("click",function(){
 
     getRecipeList($("#ingredient-filter").val(),$("#cook-time").val());   
+
+console.log("search term: "+$("#ingredient-filter").val())//DEBUG
 
     $(".card-title").empty();
     $(".line").empty();

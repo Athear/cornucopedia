@@ -24,5 +24,12 @@ $("#searchButton").on("click",function(){
     cookTime = $("#cook-time").val()=="" ? "" : $("#cook-time").val()
 
     getRecipieList($("#ingredient-filter").val(),cookTime);   
-
+   
+    
+    
+    
 })
+
+
+
+

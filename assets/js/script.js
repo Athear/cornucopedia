@@ -33,8 +33,9 @@ var edamamReadyTime ="";
 
             var recipeCol = $("<div class=col-sm>")
             var image = $("<img>")
+            var title = result.title;
             image.attr("src",result.image);
-            recipeCol.append(image);
+            recipeCol.append(image, title);
             recipeRow.append(recipeCol);
             
             

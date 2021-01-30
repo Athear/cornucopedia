@@ -24,12 +24,22 @@ var edamamReadyTime ="";
         url:spoonacularQueryURL
     }).then(function(data){
         console.log(data)//DEBUG
+
+        var recipeRow = $("<div class=row>");
         data.results.forEach(result =>{
             console.log(result.title);//DEBUG
             // result.title //Name of the recipe
             // result.image;//contains full url for image.
+
+            var recipeCol = $("<div class=col-sm>")
+            var image = $("<img>")
+            image.attr("src",result.image);
+            recipeCol.append(image);
+            recipeRow.append(recipeCol);
+            
             
         })
+        $("#main-recipe").append(recipeRow);
     })
 }
 
@@ -73,7 +83,6 @@ $("#searchButton").on("click",function(){
     $(".line").empty();
     $(".vitamins").empty();
 
-    $("#main-recipe").html("populate clickable recipes here");
       
 })
 

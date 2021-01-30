@@ -6,10 +6,16 @@ var spoonacularAPIKey ='8f3601ecf03246c9b4fa1b4a254023c5';
 //https://api.spoonacular.com/recipes/716429/information?apiKey=8f3601ecf03246c9b4fa1b4a254023c5&includeNutrition=true
 
 function getRecipeList(searchTerm,cookTime){
+var spoonacularReadyTime ="";
+var edamamReadyTime ="";
+    if (cookTime){
+        spoonacularReadyTime="&maxReadyTime="+cookTime;
+    }
+
 
     var proxy = "https://chriscastle.com/proxy/index.php?:proxy:"
     var edamamQueryURL = "https://api.edamam.com/search?q="+searchTerm+"&app_id="+edamamAPIid+"&app_key="+edamamAPIKey+"&from=0&to=5"
-    var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?q="+searchTerm+"&includeNutrition=true&instructionsRequired=true&apiKey="+spoonacularAPIKey
+    var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?q="+searchTerm+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
 
     // initial serach for recipe list
     $.ajax({
@@ -17,7 +23,9 @@ function getRecipeList(searchTerm,cookTime){
         url:spoonacularQueryURL
     }).then(function(data){
         console.log(data)
-        // console.log(JSON.parse(data));
+        data.results.forEach(result =>{
+
+        })
     })
 }
 

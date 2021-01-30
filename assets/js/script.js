@@ -16,8 +16,8 @@ function getRecipeList(searchTerm,cookTime){
         method:'GET',
         url:spoonacularQueryURL
     }).then(function(data){
-        // console.log(data)
-        console.log(JSON.parse(data));
+        console.log(data)
+        // console.log(JSON.parse(data));
     })
 }
 
@@ -32,6 +32,7 @@ function parseRecipe(recipeID){
         console.log(data)
         
         parseNutrition(data.nutrition)
+        parseIngredients(data.extendedIngredients)
     })
 
 }
@@ -40,6 +41,16 @@ function parseNutrition(nutritionStruct){
     console.log(nutritionStruct);
 }
 
+function parseIngredients(ingredientStruct){
+    ingredientStruct.forEach(element => {
+        var name = element.name
+        var ammount = element.amount
+        var unit = element.unit
+        var ingredientListing = element.original; //this is the string you usually see in recipes
+        console.log(ingredientListing);
+    });
+
+}
 
 $("#searchButton").on("click",function(){
     cookTime = $("#cook-time").val()=="" ? "" : $("#cook-time").val()

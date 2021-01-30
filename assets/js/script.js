@@ -31,10 +31,13 @@ var edamamReadyTime ="";
             // result.title //Name of the recipe
             // result.image;//contains full url for image.
 
-            var recipeCol = $("<div class=col-sm>")
+            var recipeCol = $("<div class='col-sm img-box'>")
             var image = $("<img>")
+            var title = $("<div>")
             image.attr("src",result.image);
-            recipeCol.append(image);
+            title.text(result.title);
+
+            recipeCol.append(image,title);
             recipeRow.append(recipeCol);
             
             

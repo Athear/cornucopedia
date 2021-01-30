@@ -8,6 +8,19 @@ body{
    height:500px;
 }
 
+
+.img-box{
+    position: relative;
+    text-align: center;
+}
+
+.img-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 #title1 {
     color:brown;
     

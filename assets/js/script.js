@@ -1,6 +1,9 @@
 
 var edamamAPIid = '556477a6';
 var edamamAPIKey = '3bad439961e3fa77b543342040638031';
+var spoonacularAPIKey ='8f3601ecf03246c9b4fa1b4a254023c5';
+
+//https://api.spoonacular.com/recipes/716429/information?apiKey=8f3601ecf03246c9b4fa1b4a254023c5&includeNutrition=true
 
 function getRecipieList(searchTerm,cookTime){
 

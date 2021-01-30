@@ -1,6 +1,4 @@
 
-var edamamAPIid = '556477a6';
-var edamamAPIKey = '3bad439961e3fa77b543342040638031';
 var spoonacularAPIKey ='8f3601ecf03246c9b4fa1b4a254023c5';
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:"
 
@@ -9,12 +7,9 @@ function getRecipeList(searchTerm,cookTime){
 
 //format the cook time request per specific API call, only if cook time is specified
 var spoonacularReadyTime ="";
-var edamamReadyTime ="";
     if (cookTime){
         spoonacularReadyTime="&maxReadyTime="+cookTime;
     }
-
-    var edamamQueryURL = "https://api.edamam.com/search?q="+searchTerm+"&app_id="+edamamAPIid+"&app_key="+edamamAPIKey+"&from=0&to=5"
     var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients="+searchTerm+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
 
     console.log(spoonacularQueryURL);//DEBUG

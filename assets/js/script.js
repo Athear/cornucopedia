@@ -23,17 +23,21 @@ function getRecipeList(searchTerm,cookTime){
 
 function parseRecipe(recipeID){
 
-recipeURL = "https://api.spoonacular.com/recipes/"+recipeID+"/information?includeNutrition=true&apiKey="+spoonacularAPIKey;
+    recipeURL = "https://api.spoonacular.com/recipes/"+recipeID+"/information?includeNutrition=true&apiKey="+spoonacularAPIKey;
 
-$.ajax({
-    method:'GET',
-    url:recipeURL
-}).then(function(data){
-    console.log(data)
-    //console.log(JSON.parse(data));
-})
+    $.ajax({
+        method:'GET',
+        url:recipeURL
+    }).then(function(data){
+        console.log(data)
+        
+        parseNutrition(data.nutrition)
+    })
 
+}
 
+function parseNutrition(nutritionStruct){
+    console.log(nutritionStruct);
 }
 
 

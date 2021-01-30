@@ -14,7 +14,6 @@ var edamamReadyTime ="";
         spoonacularReadyTime="&maxReadyTime="+cookTime;
     }
 
-    var proxy = "https://chriscastle.com/proxy/index.php?:proxy:"
     var edamamQueryURL = "https://api.edamam.com/search?q="+searchTerm+"&app_id="+edamamAPIid+"&app_key="+edamamAPIKey+"&from=0&to=5"
     var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?q="+searchTerm+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
 

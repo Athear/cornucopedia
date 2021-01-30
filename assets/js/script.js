@@ -26,7 +26,7 @@ var spoonacularReadyTime ="";
             // result.title //Name of the recipe
             // result.image;//contains full url for image.
 
-            var recipeCol = $("<div class='col-sm img-box'>")
+            var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+">")
             var image = $("<img>")
             var title = $("<div>")
             image.attr("src",result.image);
@@ -68,7 +68,7 @@ function parseIngredients(ingredientStruct){
         var ammount = element.amount
         var unit = element.unit
         var ingredientListing = element.original; //this is the string you usually see in recipes
-        console.log(ingredientListing);
+        console.log(ingredientListing); //DEBUG
     });
 
 }
@@ -81,10 +81,16 @@ console.log("search term: "+$("#ingredient-filter").val())//DEBUG
 
     $(".card-title").empty();
     $(".line").empty();
-    $(".vitamins").empty();
-
-      
+    $(".vitamins").empty();      
 })
+
+
+$("#main-recipe").on("click",".img-box",function(){
+    console.log("clicked")
+    parseRecipe($(this).data("recipe-id"));
+})
+
+
 
 
 

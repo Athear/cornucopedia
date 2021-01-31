@@ -28,12 +28,14 @@ var spoonacularReadyTime ="";
 
             var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+">")
             var image = $("<img>")
-            var title = $("<div>")
+            var title = $("<div draggable='true' id='draggable' onDragStart='drag(event)'>")
             image.attr("src",result.image);
             title.text(result.title);
 
             recipeCol.append(image,title);
             recipeRow.append(recipeCol);
+
+            
             
             
         })
@@ -89,6 +91,20 @@ $("#main-recipe").on("click",".img-box",function(){
     console.log("clicked")
     parseRecipe($(this).data("recipe-id"));
 })
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
 
 
 

@@ -3,14 +3,20 @@ var spoonacularAPIKey ='8f3601ecf03246c9b4fa1b4a254023c5';
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:"
 
 //function for initial recipe list
-function getRecipeList(searchTerm,cookTime){
+function getRecipeList(searchTerm,excludedTerm,cookTime){
 
 //format the cook time request per specific API call, only if cook time is specified
 var spoonacularReadyTime ="";
+var excludedSearch=""
+if(excludedTerm){
+    excludedSearch ="&excludeIngredients="+excludedTerm
+}
+excludeIngredients
+
     if (cookTime){
         spoonacularReadyTime="&maxReadyTime="+cookTime;
     }
-    var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients="+searchTerm+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
+    var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients="+searchTerm+excludedSearch+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
 
     console.log(spoonacularQueryURL);//DEBUG
 
@@ -99,9 +105,9 @@ function parseIngredients(ingredientStruct){
 
 $("#searchButton").on("click",function(){
 
-    getRecipeList($("#ingredient-filter").val(),$("#cook-time").val());   
+    getRecipeList($("#included-ingredients").val(),$("#excluded-ingredients").val(),$("#cook-time").val());   
 
-console.log("search term: "+$("#ingredient-filter").val())//DEBUG
+console.log("search term: "+$("#included-ingredients").val())//DEBUG
 
     $(".card-title").empty();
     $(".line").empty();

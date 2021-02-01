@@ -27,7 +27,7 @@ var spoonacularReadyTime ="";
             // result.image;//contains full url for image.
 
             var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+">")
-            var image = $("<img>")
+            var image = $("<img class='img-img'>")
             var title = $("<div draggable='true' id='draggable' onDragStart='drag(event)'>")
             image.attr("src",result.image);
             title.text(result.title);

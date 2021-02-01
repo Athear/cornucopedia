@@ -104,14 +104,7 @@ function parseIngredients(ingredientStruct){
 }
 
 $("#searchButton").on("click",function(){
-
-    getRecipeList($("#included-ingredients").val(),$("#excluded-ingredients").val(),$("#cook-time").val());   
-
-console.log("search term: "+$("#included-ingredients").val())//DEBUG
-
-    $(".card-title").empty();
-    $(".line").empty();
-    $(".vitamins").empty();      
+    getRecipeList($("#included-ingredients").val(),$("#excluded-ingredients").val(),$("#cook-time").val());    
 })
 
 

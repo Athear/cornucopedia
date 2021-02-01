@@ -44,7 +44,7 @@ var spoonacularReadyTime ="";
 }
 
 //function to grab information for specific recipe
-function parseRecipe(recipeID){
+function getRecipe(recipeID){
 
     recipeURL = "https://api.spoonacular.com/recipes/"+recipeID+"/information?includeNutrition=true&apiKey="+spoonacularAPIKey;
 
@@ -54,10 +54,32 @@ function parseRecipe(recipeID){
     }).then(function(data){
         console.log(data) //DEBUG
         
-        parseNutrition(data.nutrition)
-        parseIngredients(data.extendedIngredients)
+
+        parseRecipe(data);
+        parseNutrition(data.nutrition);
+        parseIngredients(data.extendedIngredients);
     })
 
+}
+
+
+function parseRecipe(recipeStruct){
+    var title = recipeStruct.title //name of recipe
+    var imageURL = recipeStruct.image //image for the recipe
+    var serves = recipeStruct.servings //servings!
+    var instructionHTML = recipeStruct.instructions //the instructions. already has html
+    var readyTime = recipeStruct.readyInMinutes //prep+cook time
+    var cost = recipeStruct.pricePerServing //????
+
+    var source = recipeStruct.sourceName //source of recipe
+    var sourceLink = recipeStruct.sourceUrl //original recipe
+
+
+    var $titleEl = $("<h1>").text(title);
+
+
+    $("#main-recipe").empty();
+    $("#main-recipe").append($titleEl,instructionHTML);
 }
 
 function parseNutrition(nutritionStruct){
@@ -89,7 +111,7 @@ console.log("search term: "+$("#ingredient-filter").val())//DEBUG
 
 $("#main-recipe").on("click",".img-box",function(){
     console.log("clicked")
-    parseRecipe($(this).data("recipe-id"));
+    getRecipe($(this).data("recipe-id"));
 })
 
 function allowDrop(ev) {

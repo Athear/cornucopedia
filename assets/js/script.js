@@ -11,7 +11,6 @@ var excludedSearch=""
 if(excludedTerm){
     excludedSearch ="&excludeIngredients="+excludedTerm
 }
-excludeIngredients
 
     if (cookTime){
         spoonacularReadyTime="&maxReadyTime="+cookTime;

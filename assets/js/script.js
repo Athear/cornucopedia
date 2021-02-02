@@ -82,9 +82,11 @@ function parseRecipe(recipeStruct){
 
     var $titleEl = $("<h1>").text(title);
 
-
     $("#main-recipe").empty();
-    $("#main-recipe").append($titleEl,instructionHTML);
+
+    ingredientEl = parseIngredients(recipeStruct.extendedIngredients);
+
+    $("#main-recipe").append($titleEl,ingredientEl,instructionHTML);
 }
 
 function parseNutrition(nutritionStruct){
@@ -92,17 +94,28 @@ function parseNutrition(nutritionStruct){
 }
 
 function parseIngredients(ingredientStruct){
+    var newRow = $("<div class='row'>");
+    var col1 = $("<div class='col-md-6'>");
+    var col2 = $("<div class='col-md-6'>");
 
-
-
-    ingredientStruct.forEach(element => {
-        var name = element.name
-        var ammount = element.amount
-        var unit = element.unit
-        var ingredientListing = element.original; //this is the string you usually see in recipes
+    for(var i=0; i<ingredientStruct.length;i++){
+        
+        var name = ingredientStruct[i].name
+        var ammount = ingredientStruct[i].amount
+        var unit = ingredientStruct[i].unit
+        var ingredientListing = ingredientStruct[i].original; //this is the string you usually see in recipes
         console.log(ingredientListing); //DEBUG
-    });
 
+        var ingredientEl = $("<p>").text(ingredientListing);
+        if(i<ingredientStruct.length/2){
+            col1.append(ingredientEl);
+        }else{
+            col2.append(ingredientEl);
+        }
+    }
+
+    newRow.append(col1,col2);
+    return(newRow)
 }
 
 $("#searchButton").on("click",function(){

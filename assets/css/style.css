@@ -8,7 +8,6 @@ body{
    height:500px;
 }
 
-
 .img-box{
     position: relative;
     text-align: center;
@@ -24,7 +23,12 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
+
+.recipe-header{
+  background-color:white;
+}
+
 
 #title1 {
     color:brown;
@@ -36,10 +40,13 @@ body{
     background-color: orange;
 }
 
-#main-recipe ol{
-  background-color: oldlace;
+#ingredient-row{
+  background-color: antiquewhite;
 }
 
+#instruction-row{
+  background-color: oldlace;
+}
 
 #cookBook {
     border: 3px solid brown;

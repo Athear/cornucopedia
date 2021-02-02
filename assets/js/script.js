@@ -81,12 +81,17 @@ function parseRecipe(recipeStruct){
 
 
     var $titleEl = $("<h1>").text(title);
-
+    var $ingredientTitle = $("<h3 class='recipe-header'>").text("Ingredients");
+    var $instructionTitle = $("<h3 class='recipe-header'>").text("Cooking Instructions");
+    
+    var $instructionsCol = $("<div class='col-md-12'>").html(instructionHTML);
+    var $instructionsEl = $("<div class='row' id='instruction-row'>").append($instructionsCol);
+    
     $("#main-recipe").empty();
 
-    ingredientEl = parseIngredients(recipeStruct.extendedIngredients);
+    $ingredientEl = parseIngredients(recipeStruct.extendedIngredients);
 
-    $("#main-recipe").append($titleEl,ingredientEl,instructionHTML);
+    $("#main-recipe").append($titleEl,$ingredientTitle,$ingredientEl,$instructionTitle,$instructionsEl);
 }
 
 function parseNutrition(nutritionStruct){
@@ -94,7 +99,7 @@ function parseNutrition(nutritionStruct){
 }
 
 function parseIngredients(ingredientStruct){
-    var newRow = $("<div class='row'>");
+    var newRow = $("<div class='row' id='ingredient-row'>");
     var col1 = $("<div class='col-md-6'>");
     var col2 = $("<div class='col-md-6'>");
 

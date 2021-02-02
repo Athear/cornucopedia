@@ -92,6 +92,9 @@ function parseNutrition(nutritionStruct){
 }
 
 function parseIngredients(ingredientStruct){
+
+
+
     ingredientStruct.forEach(element => {
         var name = element.name
         var ammount = element.amount
@@ -104,6 +107,7 @@ function parseIngredients(ingredientStruct){
 
 $("#searchButton").on("click",function(){
     getRecipeList($("#included-ingredients").val(),$("#excluded-ingredients").val(),$("#cook-time").val());    
+    $("#main-recipe").empty();
 })
 
 

@@ -131,6 +131,6 @@ body{
     padding: 2px;
   }
   
-  #draggable {
+  .dragme {
     cursor: grab;
   }

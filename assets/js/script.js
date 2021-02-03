@@ -33,7 +33,7 @@ if(excludedTerm){
 
             var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+">")
             var image = $("<img class='img-img'>")
-            var title = $("<div draggable='true' ondragstart='dragStart(event)'   id='draggable"+result.id + "' class='dragme'>");
+            var title = $("<div draggable='true' ondragstart='dragStart(event)' data-recipe-id="+result.id+"  id='draggable"+result.id + "' class='dragme'>");
 
             
 
@@ -137,6 +137,11 @@ $("#main-recipe").on("click",".img-box",function(){
     getRecipe($(this).data("recipe-id"));
 })
 
+$("#cook-book").on("click",".dragme",function(){
+    console.log("clicked")
+    getRecipe($(this).data("recipe-id"));
+})
+
 function dragStart(event) {
     event.dataTransfer.setData("text", event.target.id);
 
@@ -149,15 +154,11 @@ function allowDrop(event) {
 
 function drop(event) {
    
-    
         event.preventDefault();
         var data = event.dataTransfer.getData("text");
         event.target.appendChild(document.getElementById(data));
     
 }
-
-
-
 
 
 

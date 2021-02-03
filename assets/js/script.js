@@ -33,7 +33,7 @@ if(excludedTerm){
 
             var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+">")
             var image = $("<img class='img-img'>")
-            var title = $("<div draggable='true' ondragstart='dragStart(event)' data-recipe-id="+result.id+"  id='draggable"+result.id + "' class='dragme'>");
+            var title = $("<div draggable='true' ondragstart='dragStart(event)' id="+result.id +" class='dragme'>");
 
             
 
@@ -137,13 +137,14 @@ $("#main-recipe").on("click",".img-box",function(){
     getRecipe($(this).data("recipe-id"));
 })
 
-$("#cook-book").on("click",".dragme",function(){
+$("#cook-book").on("click",".favorite-recipe",function(){
     console.log("clicked")
     getRecipe($(this).data("recipe-id"));
 })
 
 function dragStart(event) {
-    event.dataTransfer.setData("text", event.target.id);
+    event.dataTransfer.setData("text",event.target.textContent);
+    event.dataTransfer.setData("id", event.target.id)
 
 }
 
@@ -155,8 +156,16 @@ function allowDrop(event) {
 function drop(event) {
    
         event.preventDefault();
-        var data = event.dataTransfer.getData("text");
-        event.target.appendChild(document.getElementById(data));
+
+        var incomingId = event.dataTransfer.getData("id");
+        var incomingTitle = event.dataTransfer.getData("text");
+        var recipeEl = document.createElement("div")
+        
+        recipeEl.setAttribute("data-recipe-id",incomingId);
+        recipeEl.setAttribute("class","favorite-recipe");
+        recipeEl.textContent=incomingTitle;
+
+        event.target.appendChild(recipeEl);
     
 }
 

@@ -120,7 +120,7 @@ function parseIngredients(ingredientStruct){
     return(newRow)
 }
 
-
+//Functions for favorites menu
 function dragStart(event) {
     event.dataTransfer.setData("text",event.target.textContent);
     event.dataTransfer.setData("id", event.target.id)
@@ -141,7 +141,42 @@ function drop(event) {
     recipeEl.setAttribute("class","favorite-recipe");
     recipeEl.textContent=incomingTitle;
 
-    event.target.appendChild(recipeEl); 
+    event.target.appendChild(recipeEl);
+    //storeFavorites(incomingTitle,incomingId);
+}
+
+function storeFavorites(title,id){
+    var recipeObj = {
+        "title":title,
+        "id":id
+    }
+
+    var favorites;
+    if(localStorage.getItem("favoriteRecipes")){
+        favorites = JSON.parse(localStorage.getItem("favoriteRecipes"));
+    }else{
+        favorites=[];
+    }
+
+    favorites.push(recipeObj);
+    localStorage.setItem("favoriteRecipes",JSON.stringify(favorites));
+}
+
+function getFavorties(){
+    if(localStorage.getItem("favoriteRecipes")){
+        var favorites = JSON.parse(localStorage.getItem("favoriteRecipes"));
+        
+        favorites.forEach(recipe =>{
+            var incomingId = recipe.id;
+            var incomingTitle = recipe.title;
+            var recipeEl = document.createElement("div")
+            
+            recipeEl.setAttribute("data-recipe-id",incomingId);
+            recipeEl.setAttribute("class","favorite-recipe");
+            recipeEl.textContent=incomingTitle;
+            document.querySelector("#cook-book-card").appendChild(recipeEl);
+        })        
+    }
 }
 
 

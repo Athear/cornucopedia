@@ -154,7 +154,10 @@ function allowDrop(event) {
 }
 
 function drop(event) {
+<<<<<<< HEAD
+=======
    
+>>>>>>> 4f3787c153d9fcccc8b83c9bf87063bdfa1034a0
         event.preventDefault();
 
         var incomingId = event.dataTransfer.getData("id");

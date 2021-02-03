@@ -35,16 +35,11 @@ if(excludedTerm){
             var image = $("<img class='img-img'>")
             var title = $("<div draggable='true' ondragstart='dragStart(event)' id="+result.id +" class='dragme'>");
 
-            
-
             image.attr("src",result.image);
             title.text(result.title);
 
             recipeCol.append(image,title);
             recipeRow.append(recipeCol);
-
-            
-            
             
         })
         $("#main-recipe").append(recipeRow);
@@ -69,7 +64,6 @@ function getRecipe(recipeID){
     })
 
 }
-
 
 function parseRecipe(recipeStruct){
     var title = recipeStruct.title //name of recipe
@@ -126,11 +120,35 @@ function parseIngredients(ingredientStruct){
     return(newRow)
 }
 
+
+function dragStart(event) {
+    event.dataTransfer.setData("text",event.target.textContent);
+    event.dataTransfer.setData("id", event.target.id)
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+
+    var incomingId = event.dataTransfer.getData("id");
+    var incomingTitle = event.dataTransfer.getData("text");
+    var recipeEl = document.createElement("div")
+    
+    recipeEl.setAttribute("data-recipe-id",incomingId);
+    recipeEl.setAttribute("class","favorite-recipe");
+    recipeEl.textContent=incomingTitle;
+
+    event.target.appendChild(recipeEl); 
+}
+
+
 $("#searchButton").on("click",function(){
     getRecipeList($("#included-ingredients").val(),$("#excluded-ingredients").val(),$("#cook-time").val());    
     $("#main-recipe").empty();
 })
-
 
 $("#main-recipe").on("click",".img-box",function(){
     console.log("clicked")
@@ -141,36 +159,3 @@ $("#cook-book").on("click",".favorite-recipe",function(){
     console.log("clicked")
     getRecipe($(this).data("recipe-id"));
 })
-
-function dragStart(event) {
-    event.dataTransfer.setData("text",event.target.textContent);
-    event.dataTransfer.setData("id", event.target.id)
-
-}
-
-function allowDrop(event) {
-    event.preventDefault();
-
-}
-
-function drop(event) {
-<<<<<<< HEAD
-=======
-   
->>>>>>> 4f3787c153d9fcccc8b83c9bf87063bdfa1034a0
-        event.preventDefault();
-
-        var incomingId = event.dataTransfer.getData("id");
-        var incomingTitle = event.dataTransfer.getData("text");
-        var recipeEl = document.createElement("div")
-        
-        recipeEl.setAttribute("data-recipe-id",incomingId);
-        recipeEl.setAttribute("class","favorite-recipe");
-        recipeEl.textContent=incomingTitle;
-
-        event.target.appendChild(recipeEl);
-    
-}
-
-
-

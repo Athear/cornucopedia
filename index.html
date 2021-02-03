@@ -29,11 +29,11 @@
             </div>
             
             <div class="col-md-3">
-              <input type="text" aria-label="excluded-ingredients" placeholder="Exclude Ingredients (optional)" class="form-control" id="excluded-ingredients">
+              <input type="text" aria-label="excluded-ingredients" placeholder="Exclude Ingredients" class="form-control" id="excluded-ingredients">
             </div>
             
             <div class="col-md-3">
-              <input type="text" aria-label="cook-time" placeholder="Maximum cook time (optional)" class="form-control" id="cook-time">
+              <input type="text" aria-label="cook-time" placeholder="Max cook time (minutes)" class="form-control" id="cook-time">
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-1">
@@ -231,19 +231,17 @@
   </div>
   <br>
 
-  <footer id="cookBook" ondrop="drop(event)" ondragover="allowDrop(event)">Place your favorite recipes here!
+  <footer id="cook-book">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-
+          <span id="heart" title="add your favorites here!">&hearts;</span>
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" ondrop="drop(event)" ondragover="allowDrop(event)">
               <h5 class="card-title"></h5>
-              <div id="main-recipe"></div>
             </div>
           </div>
         </div>
-
       </div>
   </footer>
 

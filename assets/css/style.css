@@ -3,9 +3,13 @@ body{
     background-color: rgb(210, 228, 240);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+footer{
+  padding: 20px;
+}
 .main-card{
-    
    height:500px;
+   margin-bottom: 200px;
 }
 
 .img-box{
@@ -46,11 +50,27 @@ body{
 
 #instruction-row{
   background-color: oldlace;
+  padding: 15px;
+  margin-bottom: 200px;
 }
 
-#cookBook {
+#cook-book {
     border: 3px solid brown;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    margin-top: 50px;
 }
+
+#heart{
+  font-size: 36px;
+  color: red;
+  float: left;
+  cursor:help;
+}
+
 
 #nutritionfacts {
     background-color: white;
@@ -130,7 +150,8 @@ body{
     border: 1px dotted grey;
     padding: 2px;
   }
-  
+
+
   .dragme {
     cursor: grab;
   }

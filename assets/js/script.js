@@ -185,6 +185,14 @@ function clearFavorites(){
 $("#searchButton").on("click",function(){
     getRecipeList($("#included-ingredients").val(),$("#excluded-ingredients").val(),$("#cook-time").val());    
     $("#main-recipe").empty();
+    
+})
+
+$(window).on("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $("#searchButton").click();
+    }
 })
 
 $("#main-recipe").on("click",".img-box",function(){

@@ -1,20 +1,20 @@
-
 var spoonacularAPIKey ='8f3601ecf03246c9b4fa1b4a254023c5';
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:"
 
 //function for initial recipe list
 function getRecipeList(searchTerm,excludedTerm,cookTime){
 
-//format the cook time request per specific API call, only if cook time is specified
-var spoonacularReadyTime ="";
-var excludedSearch=""
-if(excludedTerm){
-    excludedSearch ="&excludeIngredients="+excludedTerm
-}
+    //format the cook time request per specific API call, only if cook time is specified
+    var spoonacularReadyTime ="";
+    var excludedSearch=""
+    if(excludedTerm){
+        excludedSearch ="&excludeIngredients="+excludedTerm
+    }
 
     if (cookTime){
         spoonacularReadyTime="&maxReadyTime="+cookTime;
     }
+
     var spoonacularQueryURL = "https://api.spoonacular.com/recipes/complexSearch?includeIngredients="+searchTerm+excludedSearch+"&includeNutrition=true&instructionsRequired=true"+spoonacularReadyTime+"&apiKey="+spoonacularAPIKey
 
     console.log(spoonacularQueryURL);//DEBUG
@@ -57,12 +57,9 @@ function getRecipe(recipeID){
     }).then(function(data){
         console.log(data) //DEBUG
         
-
         parseRecipe(data);
         parseNutrition(data.nutrition);
-        parseIngredients(data.extendedIngredients);
     })
-
 }
 
 function parseRecipe(recipeStruct){

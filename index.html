@@ -62,7 +62,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <div class="serving">Per <span class="highlighted">180.0g</span> Serving Size</div>
+                      <div class="serving">Per <span class="highlighted" id="serving">000</span> Serving Size</div>
                     </td>
                   </tr>
                   <tr style="height: 7px">
@@ -76,9 +76,9 @@
                   <tr>
                     <td>
                       <div class="line">
-                        <div class="label">Calories <div class="weight">230</div>
+                        <div class="label">Calories <div class="weight" id="calories">000</div>
                         </div>
-                        <div style="padding-top: 1px; float: right;" class="labellight">Calories from Fat <div class="weight">56</div>
+                        <div style="padding-top: 1px; float: right;" class="labellight">Calories from Fat <div class="weight" id="percentFat">000</div>
                         </div>
                       </div>
                     </td>
@@ -93,25 +93,61 @@
                   <tr>
                     <td>
                       <div class="line">
-                        <div class="label">Total Fat <div class="weight">6.2g</div>
+                        <div class="label">Total Fat <div class="weight" id="totalFat">000</div>
                         </div>
-                        <div class="dv">10%</div>
+                        <div class="dv" id="totalFatDV">00%</div>
                       </div>
                     </td>
                   </tr>
                   <tr>
                     <td class="indent">
                       <div class="line">
-                        <div class="labellight">Saturated Fat <div class="weight">3.5g</div>
+                        <div class="labellight">Saturated Fat <div class="weight" id="saturatedFat">000</div>
                         </div>
-                        <div class="dv">17%</div>
+                        <div class="dv" id="saturatedFatDV">000</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="line">
+                        <div class="label">Cholesterol <div class="weight" id="cholesterol">000</div>
+                        </div>
+                        <div class="dv" id="cholesterolDV">000</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="line">
+                        <div class="label">Sodium <div class="weight" id="sodium">000</div>
+                        </div>
+                        <div class="dv" id="sodiumDV">000</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="line">
+                        <div class="label">Total Carbohydrates <div class="weight" id="totalCarb">000</div>
+                        </div>
+                        <div class="dv" id="totalCarbDV">000</div>
                       </div>
                     </td>
                   </tr>
                   <tr>
                     <td class="indent">
                       <div class="line">
-                        <div class="labellight"><i>Trans</i> Fat <div class="weight">0.0g</div>
+                        <div class="labellight">Dietary Fiber <div class="weight" id="fiber">000</div>
+                        </div>
+                        <div class="dv" id="fiberDV">000</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="indent">
+                      <div class="line">
+                        <div class="labellight">Sugars <div class="weight" id="sugar">000</div>
                         </div>
                       </div>
                     </td>
@@ -119,51 +155,7 @@
                   <tr>
                     <td>
                       <div class="line">
-                        <div class="label">Cholesterol <div class="weight">22mg</div>
-                        </div>
-                        <div class="dv">7%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="line">
-                        <div class="label">Sodium <div class="weight">618mg</div>
-                        </div>
-                        <div class="dv">26%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="line">
-                        <div class="label">Total Carbohydrates <div class="weight">32.2g</div>
-                        </div>
-                        <div class="dv">11%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="indent">
-                      <div class="line">
-                        <div class="labellight">Dietary Fiber <div class="weight">5.2g</div>
-                        </div>
-                        <div class="dv">21%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="indent">
-                      <div class="line">
-                        <div class="labellight">Sugars <div class="weight">3.3g</div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="line">
-                        <div class="label">Protein <div class="weight">11.4g</div>
+                        <div class="label">Protein <div class="weight" id="protein">000</div>
                         </div>
                       </div>
                     </td>
@@ -176,24 +168,24 @@
                       <table cellspacing="0" cellpadding="0" id="tableborder" class="vitamins">
                         <tbody>
                           <tr>
-                            <td>Vitamin A &nbsp;&nbsp; 10%</td>
+                            <td>Vitamin A &nbsp;&nbsp; <span id="vitaminA">0%</span></td>
                             <td class="center">•</td>
-                            <td class="right">Calcium &nbsp;&nbsp; 19%</td>
+                            <td class="right">Calcium &nbsp;&nbsp; <span id="calcium">0%</span></td>
                           </tr>
                           <tr>
-                            <td>Vitamin B &nbsp;&nbsp; 22%</td>
+                            <td>Vitamin B &nbsp;&nbsp; <span id="vitaminB12">0%</span></td>
                             <td class="center">•</td>
-                            <td class="right">Iron &nbsp;&nbsp; 13%</td>
+                            <td class="right">Iron &nbsp;&nbsp; <span id="iron">0%</span></td>
                           </tr>
                           <tr>
-                            <td>Vitamin C &nbsp;&nbsp; 16%</td>
+                            <td>Vitamin C &nbsp;&nbsp; <span id="vitaminC">0%</span></td>
                             <td class="center">•</td>
-                            <td class="right">Potassium &nbsp;&nbsp; 7%</td>
+                            <td class="right">Potassium &nbsp;&nbsp; <span id="potassium">0%</span></td>
                           </tr>
                           <tr>
-                            <td>Vitamin D &nbsp;&nbsp; 5%</td>
+                            <td>Vitamin D &nbsp;&nbsp; <span id="vitaminD">0%</span></td>
                             <td class="center">•</td>
-                            <td class="right">Folate &nbsp;&nbsp; 40%</td>
+                            <td class="right">Folate &nbsp;&nbsp; <span id="folate">0%</span></td>
                           </tr>
                         </tbody>
                       </table>

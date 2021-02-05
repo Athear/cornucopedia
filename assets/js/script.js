@@ -90,6 +90,115 @@ function parseRecipe(recipeStruct){
 
 function parseNutrition(nutritionStruct){
     console.log(nutritionStruct);//DEBUG
+
+    //servings
+    var $serving = nutritionStruct.weightPerServing.amount
+    $("#serving").empty();
+    $("#serving").append($serving + "g")
+    
+    //calories
+    var $calories = nutritionStruct.nutrients[0].amount 
+    $("#calories").empty();
+    $("#calories").append($calories)
+
+    //calories from fat
+    var $percentFat = nutritionStruct.caloricBreakdown.percentFat 
+    $("#percentFat").empty();
+    $("#percentFat").append($percentFat + "%")
+
+    //total fat
+    var $totalFat = nutritionStruct.nutrients[1].amount 
+    $("#totalFat").empty();
+    $("#totalFat").append($totalFat + "g")
+    var $totalFatDV = nutritionStruct.nutrients[1].percentOfDailyNeeds 
+    $("#totalFatDV").empty();
+    $("#totalFatDV").append($totalFatDV + "%")
+
+    //saturated fat
+    var $saturatedFat = nutritionStruct.nutrients[2].amount 
+    $("#saturatedFat").empty();
+    $("#saturatedFat").append($saturatedFat + "g")
+    var $saturatedFatDV = nutritionStruct.nutrients[2].percentOfDailyNeeds 
+    $("#saturatedFatDV").empty();
+    $("#saturatedFatDV").append($saturatedFatDV + "%")
+
+    //trans fat
+    
+    //cholesterol
+    var $cholesterol = nutritionStruct.nutrients[6].amount 
+    $("#cholesterol").empty();
+    $("#cholesterol").append($cholesterol + "mg")
+    var $cholesterolDV = nutritionStruct.nutrients[6].percentOfDailyNeeds 
+    $("#cholesterolDV").empty();
+    $("#cholesterolDV").append($cholesterolDV + "%")
+
+    //sodium
+    var $sodium = nutritionStruct.nutrients[7].amount 
+    $("#sodium").empty();
+    $("#sodium").append($sodium + "mg")
+    var $sodiumDV = nutritionStruct.nutrients[7].percentOfDailyNeeds 
+    $("#sodiumDV").empty();
+    $("#sodiumDV").append($sodiumDV + "%")
+
+    //total carb
+    var $totalCarb = nutritionStruct.nutrients[3].amount 
+    $("#totalCarb").empty();
+    $("#totalCarb").append($totalCarb + "g")
+    var $sodiumDV = nutritionStruct.nutrients[3].percentOfDailyNeeds 
+    $("#totalCarbDV").empty();
+    $("#totalCarbDV").append($sodiumDV + "%")
+
+    //fiber
+    var $fiber = nutritionStruct.nutrients[28].amount 
+    $("#fiber").empty();
+    $("#fiber").append($fiber + "g")
+    var $fiberDV = nutritionStruct.nutrients[28].percentOfDailyNeeds 
+    $("#fiberDV").empty();
+    $("#fiberDV").append($fiberDV + "%")
+
+    //sugar
+    var $sugar = nutritionStruct.nutrients[5].amount 
+    $("#sugar").empty();
+    $("#sugar").append($sugar + "g")
+  
+    //protein
+    var $protein = nutritionStruct.nutrients[8].amount 
+    $("#protein").empty();
+    $("#protein").append($protein + "g")
+
+    //8-10 micronutrients
+    var $vitaminA = nutritionStruct.nutrients[29].percentOfDailyNeeds 
+    $("#vitaminA").empty();
+    $("#vitaminA").append($vitaminA + "%")
+
+    var $vitaminB12 = nutritionStruct.nutrients[13].percentOfDailyNeeds 
+    $("#vitaminB12").empty();
+    $("#vitaminB12").append($vitaminB12 + "%")
+
+    var $calcium = nutritionStruct.nutrients[27].percentOfDailyNeeds 
+    $("#calcium").empty();
+    $("#calcium").append($calcium + "%")
+
+    var $iron = nutritionStruct.nutrients[16].percentOfDailyNeeds 
+    $("#iron").empty();
+    $("#iron").append($iron + "%")
+
+    var $vitaminC = nutritionStruct.nutrients[23].percentOfDailyNeeds 
+    $("#vitaminC").empty();
+    $("#vitaminC").append($vitaminC + "%")
+
+    var $potassium = nutritionStruct.nutrients[18].percentOfDailyNeeds 
+    $("#potassium").empty();
+    $("#potassium").append($potassium + "%")
+
+    var $vitaminD = nutritionStruct.nutrients[30].percentOfDailyNeeds 
+    $("#vitaminD").empty();
+    $("#vitaminD").append($vitaminD + "%")
+
+    var $folate = nutritionStruct.nutrients[29].percentOfDailyNeeds 
+    $("#folate").empty();
+    $("#folate").append($folate + "%")
+
 }
 
 function parseIngredients(ingredientStruct){

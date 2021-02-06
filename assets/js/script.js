@@ -31,9 +31,9 @@ function getRecipeList(searchTerm,excludedTerm,cookTime){
             // result.title //Name of the recipe
             // result.image;//contains full url for image.
 
-            var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+">")
-            var image = $("<img class='img-img'>")
-            var title = $("<div draggable='true' ondragstart='dragStart(event)' id="+result.id +" class='dragme'>");
+            var recipeCol = $("<div class='col-sm img-box' data-recipe-id="+result.id+" draggable='true' ondragstart='dragStart(event)'>")
+            var image = $("<img draggable='false' class='img-img'>")
+            var title = $("<div>");
 
             image.attr("src",result.image);
             title.text(result.title);
@@ -228,8 +228,10 @@ function parseIngredients(ingredientStruct){
 
 //Functions for favorites menu
 function dragStart(event) {
-    event.dataTransfer.setData("text",event.target.textContent);
-    event.dataTransfer.setData("id", event.target.id)
+    var group = event.target;
+    console.log(group);
+    event.dataTransfer.setData("text",group.children[1].textContent);
+    event.dataTransfer.setData("id", group.getAttribute("data-recipe-id"))
 }
 
 function allowDrop(event) {

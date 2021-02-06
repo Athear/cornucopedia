@@ -15,6 +15,7 @@ footer{
 .img-box{
     position: relative;
     text-align: center;
+    cursor: grab;
 }
 
 .img-img{

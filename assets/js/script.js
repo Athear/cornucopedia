@@ -245,12 +245,17 @@ function drop(event) {
     var incomingTitle = event.dataTransfer.getData("text");
     var recipeEl = document.createElement("div")
     
+    storeFavorites(incomingTitle,incomingId);
+    
     recipeEl.setAttribute("data-recipe-id",incomingId);
     recipeEl.setAttribute("class","favorite-recipe");
     recipeEl.textContent=incomingTitle;
 
-    event.target.appendChild(recipeEl);
-    storeFavorites(incomingTitle,incomingId);
+    if(event.target.getAttribute("class")==="favorite-recipe"){
+        event.target.parentElement.appendChild(recipeEl);
+    }else{
+        event.target.appendChild(recipeEl);
+    }
 }
 
 function storeFavorites(title,id){

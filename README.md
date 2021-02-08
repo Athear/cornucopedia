@@ -20,11 +20,11 @@ Clicking Search will bring up a list of recipes.
 
 
 
-![Recipe Search](.\assets\images\Recipe_Search.png)
+![Recipe Search](./assets/images/Recipe_Search.png)
 
 
 
-![Recipe Information](.\assets\images\Recipe_Information.png)
+![Recipe Information](./assets/images/Recipe_Information.png)
 
 
 
